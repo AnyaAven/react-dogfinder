@@ -3,38 +3,31 @@ import { getDog } from "./helper.js";
 
 /**
  * Props:
- * dog {  id: NUMBER,
+ * dogs [{  id: NUMBER,
  *      name: STRING,
  *      age: NUMBER,
  *      facts: [STRING,...],
  *      src: STRING
- * }
+ * },...
+ * ]
  *
  */
 
-function DogDetails({ dog }) {
-  // but if dog is undefined
-
-  // then use the params
+function DogDetails({ dogs }) {
   const { name } = useParams();
-  // fetch out dog details from db
-  // could be broken out to a different fn
-
-  async function getDoggyInfo() {
-    const doggyInfo = dog ? dog : await getDog(name);
-    return doggyInfo;
-  }
+  console.log({dogs})
+  const dog = getDog(dogs, name);
 
   return (
     <div className="DogDetails">
-      <h1>{doggyInfo.name}</h1>
-      <p>Age:{doggyInfo.age}</p>
+      <h1>{dog.name}</h1>
+      <p>Age:{dog.age}</p>
       <ul>
-        {doggyInfo.facts.map((fact) => (
-          <li key={doggyInfo.id}>{fact}</li>
+        {dog.facts.map((fact) => (
+          <li key={dog.id + dog.id}>{fact}</li>
         ))}
       </ul>
-      <img src={`${doggyInfo.src}.jpg`} />
+      <img src={`${dog.src}.jpg`} />
     </div>
   );
 }
