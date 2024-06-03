@@ -1,13 +1,27 @@
-async function getDog(name) {
-  const responses = await fetch("http://localhost:5001/dogs");
-  const dogsData = await responses.json();
+const DB_URL = "http://localhost:5001"
 
-  console.log("DATA", dogsData);
-  const dog = dogsData.filter(
+/**
+ * get a dog by name
+ */
+function getDog(dogs, name) {
+  const dog = dogs.filter(
     (dogData) => dogData.name.toLowerCase() === name.toLowerCase()
   );
 
-  return dog;
+  return dog[0];
 }
 
-export { getDog };
+/**
+ * Get list of dogs from DB
+ */
+async function getDogs() {
+  const responses = await fetch(`${DB_URL}/dogs`);
+  const dogsData = await responses.json();
+
+  return dogsData;
+}
+
+export {
+  getDog,
+  getDogs,
+};
