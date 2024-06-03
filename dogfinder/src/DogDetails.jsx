@@ -1,24 +1,36 @@
+import { useParams } from "react-router-dom";
+
 /**
  * Props:
- * - {  id: NUMBER,
+ * dog {  id: NUMBER,
  *      name: STRING,
  *      age: NUMBER,
  *      facts: [STRING,...],
- *      imageUrl: STRING
+ *      src: STRING
  * }
+ *
  */
 
-function DogDetails({ id, name, age, facts, imageUrl }) {
+function DogDetails({ dog }) {
+  // but if dog is undefined
+  if (dog === undefined){
+
+  }
+  // then use the params
+  const { name } = useParams();
+  // fetch out dog details from db
+  // could be broken out to a different fn
+
   return (
     <div className="DogDetails">
-      <h1>{name}</h1>
-      <p>Age:{age}</p>
+      <h1>{dog.name}</h1>
+      <p>Age:{dog.age}</p>
       <ul>
-        {facts.map((fact) => (
-          <li key={id}>{fact}</li>
+        {dog.facts.map((fact) => (
+          <li key={dog.id}>{fact}</li>
         ))}
       </ul>
-      <img src={`${imageUrl}.jpg`} />
+      <img src={`${dog.src}.jpg`} />
     </div>
   );
 }
