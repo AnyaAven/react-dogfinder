@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { getDog } from "./helper.js";
 
 /**
  * Props:
@@ -13,24 +14,27 @@ import { useParams } from "react-router-dom";
 
 function DogDetails({ dog }) {
   // but if dog is undefined
-  if (dog === undefined){
 
-  }
   // then use the params
   const { name } = useParams();
   // fetch out dog details from db
   // could be broken out to a different fn
 
+  async function getDoggyInfo() {
+    const doggyInfo = dog ? dog : await getDog(name);
+    return doggyInfo;
+  }
+
   return (
     <div className="DogDetails">
-      <h1>{dog.name}</h1>
-      <p>Age:{dog.age}</p>
+      <h1>{doggyInfo.name}</h1>
+      <p>Age:{doggyInfo.age}</p>
       <ul>
-        {dog.facts.map((fact) => (
-          <li key={dog.id}>{fact}</li>
+        {doggyInfo.facts.map((fact) => (
+          <li key={doggyInfo.id}>{fact}</li>
         ))}
       </ul>
-      <img src={`${dog.src}.jpg`} />
+      <img src={`${doggyInfo.src}.jpg`} />
     </div>
   );
 }
