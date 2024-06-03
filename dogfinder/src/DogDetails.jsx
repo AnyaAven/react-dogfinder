@@ -13,21 +13,29 @@ import { getDog } from "./helper.js";
  *
  */
 
-function DogDetails({ dogs }) {
-  const { name } = useParams();
-  console.log({dogs})
-  const dog = getDog(dogs, name);
+function DogDetails({ dog, dogs }) {
+  let dogForDisplay = dog;
+
+  if (dog === undefined) {
+    const { name } = useParams();
+    dogForDisplay = getDog(dogs, name);
+    console.log("DOG DETAILS IF", dogs, name);
+    if (dog === null) {
+      console.log("doggo not found");
+      return <p>DOGGO NOT FOUND</p>;
+    }
+  }
 
   return (
     <div className="DogDetails">
-      <h1>{dog.name}</h1>
-      <p>Age:{dog.age}</p>
+      <h1>{dogForDisplay.name}</h1>
+      <p>Age:{dogForDisplay.age}</p>
       <ul>
-        {dog.facts.map((fact) => (
-          <li key={dog.id + dog.id}>{fact}</li>
+        {dogForDisplay.facts.map((fact) => (
+          <li key={dogForDisplay.id + dogForDisplay.id}>{fact}</li>
         ))}
       </ul>
-      <img src={`${dog.src}.jpg`} />
+      <img src={`${dogForDisplay.src}.jpg`} />
     </div>
   );
 }

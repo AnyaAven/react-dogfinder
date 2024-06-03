@@ -13,16 +13,15 @@ import DogDetails from "./DogDetails.jsx";
  * },...]
  */
 function DogList({ dogs }) {
+  console.log("DOOOOOGGGSSS LIST", dogs);
 
   return (
-  <div className="DogList">
-    {dogs.map(
-      dog =>
-        (
-          <DogDetails key={dog.id} dog={dog}/>
-        )
-    )}
-  </div>)
+    <div className="DogList">
+      {dogs.map((dog) => (
+        <DogDetails key={dog.id} dog={dog} />
+      ))}
+    </div>
+  );
 }
 
 export default DogList;

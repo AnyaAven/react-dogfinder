@@ -1,10 +1,10 @@
-import './App.css';
+import "./App.css";
 //import {v4 as uuid } from "uuid";
-import RoutesList from './RoutesList';
-import { BrowserRouter } from 'react-router-dom';
-import { getDogs } from './helper.js';
+import RoutesList from "./RoutesList";
+import { BrowserRouter } from "react-router-dom";
+import { getDogs } from "./helper.js";
 
-const DOGS = await getDogs()
+const DOGS = await getDogs();
 
 function App() {
   return (

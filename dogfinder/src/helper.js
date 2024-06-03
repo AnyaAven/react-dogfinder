@@ -1,4 +1,4 @@
-const DB_URL = "http://localhost:5001"
+const DB_URL = "http://localhost:5001";
 
 /**
  * get a dog by name
@@ -8,7 +8,7 @@ function getDog(dogs, name) {
     (dogData) => dogData.name.toLowerCase() === name.toLowerCase()
   );
 
-  return dog[0];
+  return dog[0] || null;
 }
 
 /**
