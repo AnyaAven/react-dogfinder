@@ -4,7 +4,8 @@
  *      name: STRING,
  *      age: NUMBER,
  *      facts: [STRING,...],
- *      imageUrl: STRING  }
+ *      imageUrl: STRING
+ * }
  */
 
 function DogDetails({ id, name, age, facts, imageUrl }) {
@@ -17,7 +18,7 @@ function DogDetails({ id, name, age, facts, imageUrl }) {
           <li key={id}>{fact}</li>
         ))}
       </ul>
-      <img src={imageUrl} />
+      <img src={`${imageUrl}.jpg`} />
     </div>
   );
 }
