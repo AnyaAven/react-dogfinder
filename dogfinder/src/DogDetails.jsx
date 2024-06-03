@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getDog } from "./helper.js";
 
 /**
@@ -28,14 +28,17 @@ function DogDetails({ dog, dogs }) {
 
   return (
     <div className="DogDetails">
-      <h1>{dogForDisplay.name}</h1>
+      <Link to={`/dogs/${dogForDisplay.name}`}>
+        <img src={`/${dogForDisplay.src}.jpg`} />
+        <h1>{dogForDisplay.name}</h1>
+      </Link>
+
       <p>Age:{dogForDisplay.age}</p>
-      <ul>
-        {dogForDisplay.facts.map((fact) => (
-          <li key={dogForDisplay.id + dogForDisplay.id}>{fact}</li>
-        ))}
-      </ul>
-      <img src={`${dogForDisplay.src}.jpg`} />
+        <ul>
+          {dogForDisplay.facts.map((fact) => (
+            <li key={dogForDisplay.id + dogForDisplay.id}>{fact}</li>
+          ))}
+        </ul>
     </div>
   );
 }
