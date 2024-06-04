@@ -1,15 +1,18 @@
 import "./App.css";
 import RoutesList from "./RoutesList";
+import Nav from "./Nav.jsx";
 import { BrowserRouter } from "react-router-dom";
-import { getDogs } from "./helper.js";
+import { getDogs, getDogNames } from "./helper.js";
 
 const DOGS = await getDogs();
+const DOG_NAMES = getDogNames(DOGS);
 
 function App() {
   return (
     <div className="App">
       <h1>Dog Finder</h1>
       <BrowserRouter>
+        <Nav links={DOG_NAMES} />
         <RoutesList dogs={DOGS} />
       </BrowserRouter>
     </div>

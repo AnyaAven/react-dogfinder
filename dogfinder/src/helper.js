@@ -21,7 +21,15 @@ async function getDogs() {
   return dogsData;
 }
 
+/** get the names of each dog
+ * returns [name, name,...]
+ */
+function getDogNames(dogs){
+  return dogs.map(dog => dog.name);
+}
+
 export {
   getDog,
   getDogs,
+  getDogNames,
 };
