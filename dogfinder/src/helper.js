@@ -1,7 +1,9 @@
 const DB_URL = "http://localhost:5001";
 
 /**
- * get a dog by name
+ * Takes in a list of dog objects and a name
+ *
+ * Return a dog object
  */
 function getDog(dogs, name) {
   const dog = dogs.filter(
@@ -12,7 +14,7 @@ function getDog(dogs, name) {
 }
 
 /**
- * Get list of dogs from DB
+ * Return a list of dogs from DB
  */
 async function getDogs() {
   const responses = await fetch(`${DB_URL}/dogs`);
@@ -21,10 +23,10 @@ async function getDogs() {
   return dogsData;
 }
 
-/** get the names of each dog
+/** Takes an array of dog objects
  * returns [name, name,...]
  */
-function getDogNames(dogs){
+function getDogNames(dogs) {
   return dogs.map(dog => dog.name);
 }
 

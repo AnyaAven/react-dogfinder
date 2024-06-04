@@ -7,6 +7,9 @@ import { getDogs, getDogNames } from "./helper.js";
 const DOGS = await getDogs();
 const DOG_NAMES = getDogNames(DOGS);
 
+/**
+ * App for Dog Finder
+ */
 function App() {
   return (
     <div className="App">

@@ -3,15 +3,17 @@ import { getDog } from "./helper.js";
 import "./DogDetails.css";
 
 /**
+ * Stateless
+ *
  * Props:
  * dogs [{  id: NUMBER,
  *      name: STRING,
  *      age: NUMBER,
  *      facts: [STRING,...],
  *      src: STRING
- * },...
- * ]
+ * },...]
  *
+ * DogList > DogDetails
  */
 
 function DogDetails({ dog, dogs }) {
@@ -31,7 +33,7 @@ function DogDetails({ dog, dogs }) {
     <div className="DogDetails">
       <Link to={`/dogs/${dogForDisplay.name}`}>
         <img src={`/${dogForDisplay.src}.jpg`} />
-        <h1>{dogForDisplay.name}</h1>
+        <h3>{dogForDisplay.name}</h3>
       </Link>
 
       <p>Age:{dogForDisplay.age}</p>
