@@ -1,5 +1,4 @@
 import "./App.css";
-//import {v4 as uuid } from "uuid";
 import RoutesList from "./RoutesList";
 import { BrowserRouter } from "react-router-dom";
 import { getDogs } from "./helper.js";
@@ -9,7 +8,7 @@ const DOGS = await getDogs();
 function App() {
   return (
     <div className="App">
-      <h1>App!</h1>
+      <h1>Dog Finder</h1>
       <BrowserRouter>
         <RoutesList dogs={DOGS} />
       </BrowserRouter>

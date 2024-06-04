@@ -3,7 +3,16 @@ import DogList from "./DogList.jsx";
 import { Route, Routes } from "react-router-dom";
 
 /**
+ * Props:
+ * - dogs: { id: NUMBER,
+ *          name: STRING,
+ *          age: STRING,
+ *          src: STRING,
+ *          imageUrl: STRING }
  *
+ * State: none
+ *
+ * App > RoutesList > Routes
  */
 function RoutesList({ dogs }) {
   console.log("routes list", dogs);
@@ -15,7 +24,6 @@ function RoutesList({ dogs }) {
       <Route path="*" element={<h1>Not found! 404</h1>} />
     </Routes>
   );
-  //TODO: chek DogDetails path
 }
 
 export default RoutesList;

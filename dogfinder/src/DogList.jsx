@@ -1,4 +1,5 @@
 import DogDetails from "./DogDetails.jsx";
+import "./DogList.css";
 
 /**
  * Shows details of all the dogs on DogFinder
@@ -13,8 +14,6 @@ import DogDetails from "./DogDetails.jsx";
  * },...]
  */
 function DogList({ dogs }) {
-  console.log("DOOOOOGGGSSS LIST", dogs);
-
   return (
     <div className="DogList">
       {dogs.map((dog) => (

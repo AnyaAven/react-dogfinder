@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { getDog } from "./helper.js";
+import "./DogDetails.css";
 
 /**
  * Props:
@@ -20,7 +21,7 @@ function DogDetails({ dog, dogs }) {
     const { name } = useParams();
     dogForDisplay = getDog(dogs, name);
     console.log("DOG DETAILS IF", dogs, name);
-    if (dog === null) {
+    if (dogForDisplay === null) {
       console.log("doggo not found");
       return <p>DOGGO NOT FOUND</p>;
     }
@@ -34,11 +35,11 @@ function DogDetails({ dog, dogs }) {
       </Link>
 
       <p>Age:{dogForDisplay.age}</p>
-        <ul>
-          {dogForDisplay.facts.map((fact) => (
-            <li key={dogForDisplay.id + dogForDisplay.id}>{fact}</li>
-          ))}
-        </ul>
+      <ul>
+        {dogForDisplay.facts.map((fact) => (
+          <li key={fact}>{fact}</li>
+        ))}
+      </ul>
     </div>
   );
 }
